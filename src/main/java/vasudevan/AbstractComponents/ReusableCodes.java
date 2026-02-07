@@ -12,35 +12,37 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ReusableCodes {
 	WebDriver driver;
+	WebDriverWait wait;
 
 	public ReusableCodes(WebDriver driver) {
 		this .driver=driver;
-		PageFactory.initElements(driver, this); 	 	
+		PageFactory.initElements(driver, this); 
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 	
 	public void waitForElementToBeClickable(WebElement element) {
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
 	
 	public void waitForElementToAppear(WebElement element) {
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.visibilityOf(element));
 	}
 	
 	public List<WebElement> waitForElementsToAppear(List<WebElement> elements) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfAllElements(elements));
         return elements;
 	}
-	
+	 public  void scrollToElement(WebElement element) {
+	        ((JavascriptExecutor) driver)
+	                .executeScript("arguments[0].scrollIntoView({block:'center'});", element);
+	    }	
 	
 	   public void scrollBy() throws InterruptedException {
 		    JavascriptExecutor js = (JavascriptExecutor) driver;
-		    Thread.sleep(2000);
+		    Thread.sleep(1000);
 		    js.executeScript("window.scrollBy(0,400)");
-		    Thread.sleep(2000);
+		    Thread.sleep(1000);
 		   
 		}
 	  

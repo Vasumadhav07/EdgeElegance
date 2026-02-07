@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
-
 import vasudevan.AbstractComponents.ReusableCodes;
 
 public class OrderPage extends ReusableCodes{
@@ -31,19 +29,25 @@ public class OrderPage extends ReusableCodes{
 	@FindBy(css=".customer-page-title")
     WebElement confirmMesage;
 	
-	public void viewOrder() throws InterruptedException {
+	public WebElement viewOrder() throws InterruptedException {
 		logiBtn.click();
 		scrollBy();
 		orderBtn.click();
 		WebElement takingOrder =orderList.get(0);
 		takingOrder.click();
-		confirmMesage.getText();
-		String actualText = confirmMesage.getText().trim();
-	    String expectedText = "Order information";
-		Assert.assertEquals(actualText, expectedText);
-	    driver.close();	
+		confirmMesage.getText().trim();
+		return confirmMesage;
+//		String actualText = confirmMesage.getText().trim();
+//	    String expectedText = "Order information";
+//		Assert.assertEquals(actualText, expectedText);
+//	    driver.close();	
 		
 	}
+	public String getOrderConfirmationText() {
+		waitForElementToAppear(confirmMesage);
+	    return confirmMesage.getText().trim();
+	}
+
 	
 	}
 	

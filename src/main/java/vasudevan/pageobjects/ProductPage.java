@@ -2,12 +2,10 @@ package vasudevan.pageobjects;
 
 import java.util.List;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import vasudevan.AbstractComponents.ReusableCodes;
 
 
@@ -30,8 +28,8 @@ public class ProductPage extends ReusableCodes {
 	WebElement clickAddToCart;
 	
 	
-	
 	public List<WebElement> getProductList() {
+		
 		waitForElementsToAppear(productlist);
 		return products;
 	}
@@ -43,11 +41,12 @@ public class ProductPage extends ReusableCodes {
 
 	}
 	
-	public void addToCart() throws InterruptedException  {
-		 JavascriptExecutor js = (JavascriptExecutor) driver;
+	public CartPage addToCart() throws InterruptedException  {
 		 scrollBy();
          waitForElementToAppear(clickAddToCart);
          clickAddToCart.click();
+         CartPage cartPage = new CartPage(driver);
+         return cartPage;
 	}
 	
 

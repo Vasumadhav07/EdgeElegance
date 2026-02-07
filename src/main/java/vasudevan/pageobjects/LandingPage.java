@@ -1,6 +1,5 @@
 package vasudevan.pageobjects;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,6 +34,9 @@ public class LandingPage extends ReusableCodes{
     @FindBy(css=".tptrack__submition")
     WebElement submitBtn;
     
+	@FindBy(xpath="//a[contains(text(),'Shop')]")
+	WebElement shopBtn;
+	
     // Action methods to login 
     
     public void launchingURL() {
@@ -49,12 +51,17 @@ public class LandingPage extends ReusableCodes{
 
  
     
-    public void clickLoginBtn(String email , String password) throws InterruptedException {
+    public ProductPage clickLoginBtn(String email , String password) throws InterruptedException {
     	scrollBy();
     	userEmail.sendKeys(email);
         userPassword.sendKeys(password);
     	waitForElementToBeClickable(submitBtn);
         submitBtn.click();
+        waitForElementToBeClickable(shopBtn);
+        shopBtn.click();
+        ProductPage productPage = new ProductPage(driver);
+        return productPage;
+        
 
     }
     

@@ -33,6 +33,7 @@ public class CartPage extends ReusableCodes {
 		proceedToCheckoutBtn.click();
 		scrollBy() ;
 		checkoutBtn.click();
+		Thread.sleep(300);
 		
 	}
 	
