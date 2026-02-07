@@ -1,4 +1,4 @@
-package vasu.vasudevan;
+package vasudevan.Tests;
 
 import java.time.Duration;
 import java.util.List;

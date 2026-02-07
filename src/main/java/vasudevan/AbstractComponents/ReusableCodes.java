@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ReusableCodes {
-	WebDriver driver;
+	protected WebDriver driver;
 	WebDriverWait wait;
 
 	public ReusableCodes(WebDriver driver) {

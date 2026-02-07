@@ -10,13 +10,12 @@ import vasudevan.AbstractComponents.ReusableCodes;
 
 
 public class LandingPage extends ReusableCodes{
-	WebDriver driver;
+	//WebDriver driver;
 	public LandingPage(WebDriver driver) {
 		
 		super(driver);
-		
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+//		this.driver=driver;
+//		PageFactory.initElements(driver, this);
 	}
 	
 	 @FindBy(css="button.js-cookie-consent-agree")

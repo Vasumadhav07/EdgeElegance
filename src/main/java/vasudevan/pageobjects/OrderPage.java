@@ -9,11 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 import vasudevan.AbstractComponents.ReusableCodes;
 
 public class OrderPage extends ReusableCodes{
-	WebDriver driver;
+	//WebDriver driver;
 	public OrderPage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		//this.driver = driver;
+		//PageFactory.initElements(driver, this);
 	}
 
 	@FindBy(xpath="//a[@title='Login']")
@@ -29,22 +29,18 @@ public class OrderPage extends ReusableCodes{
 	@FindBy(css=".customer-page-title")
     WebElement confirmMesage;
 	
-	public WebElement viewOrder() throws InterruptedException {
+	public void viewOrder() throws InterruptedException {
 		logiBtn.click();
 		scrollBy();
 		orderBtn.click();
 		WebElement takingOrder =orderList.get(0);
 		takingOrder.click();
 		confirmMesage.getText().trim();
-		return confirmMesage;
-//		String actualText = confirmMesage.getText().trim();
-//	    String expectedText = "Order information";
-//		Assert.assertEquals(actualText, expectedText);
-//	    driver.close();	
+		waitForElementToAppear(confirmMesage);
 		
 	}
 	public String getOrderConfirmationText() {
-		waitForElementToAppear(confirmMesage);
+		
 	    return confirmMesage.getText().trim();
 	}
 

@@ -26,12 +26,12 @@
         </dependency>
 
         <!-- TestNG 7.9.0 -->
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.9.0</version>
-            <scope>test</scope>
-        </dependency>
+       <dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.1.0</version>
+    <scope>test</scope>
+</dependency>
 
         <!-- WebDriverManager 5.8.0 -->
         <dependency>

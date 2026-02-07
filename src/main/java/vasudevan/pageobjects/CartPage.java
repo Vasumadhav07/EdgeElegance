@@ -9,11 +9,11 @@ import vasudevan.AbstractComponents.ReusableCodes;
 
 public class CartPage extends ReusableCodes {
 	
-	WebDriver driver;
+	//WebDriver driver;
 	public CartPage(WebDriver driver) {
 		super(driver);
-		this.driver=driver;
-		PageFactory.initElements(driver, this);
+//		this.driver=driver;
+//		PageFactory.initElements(driver, this);
 	}
 	
 	@FindBy(xpath="//a[.='View Cart']")
@@ -34,6 +34,8 @@ public class CartPage extends ReusableCodes {
 		scrollBy() ;
 		checkoutBtn.click();
 		Thread.sleep(300);
+		driver.navigate().refresh();
+	
 		
 	}
 	

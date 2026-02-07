@@ -11,11 +11,11 @@ import vasudevan.AbstractComponents.ReusableCodes;
 
 
 public class ProductPage extends ReusableCodes {
-	WebDriver driver;
+   // WebDriver driver;
 	public ProductPage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+//		 this.driver = driver;
+//		 PageFactory.initElements(driver, this);
 	}
 	
 	@FindBy(css="h3 a")
