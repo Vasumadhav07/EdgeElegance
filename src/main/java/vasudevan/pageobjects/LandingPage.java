@@ -36,6 +36,9 @@ public class LandingPage extends ReusableCodes{
 	@FindBy(xpath="//a[contains(text(),'Shop')]")
 	WebElement shopBtn;
 	
+    @FindBy(xpath="//div[@class='toast-message']")
+    WebElement errorMessage;
+	
     // Action methods to login 
     
     public void launchingURL() {
@@ -47,7 +50,7 @@ public class LandingPage extends ReusableCodes{
     	loginBtn.click();
     }
  
-
+ 
  
     
     public ProductPage clickLoginBtn(String email , String password) throws InterruptedException {
@@ -60,8 +63,20 @@ public class LandingPage extends ReusableCodes{
         shopBtn.click();
         ProductPage productPage = new ProductPage(driver);
         return productPage;
-        
 
+    }
+    
+//    public ProductPage shopPage() {
+//    	 waitForElementToBeClickable(shopBtn);
+//         shopBtn.click();
+//         ProductPage productPage = new ProductPage(driver);
+//         return productPage;
+//    }
+    
+    public String errorValidations() {
+    	waitForElementToAppear(errorMessage);
+    	return errorMessage.getText();
+    	
     }
     
     

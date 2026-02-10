@@ -7,6 +7,9 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import vasudevan.pageobjects.LandingPage;
@@ -14,6 +17,7 @@ import vasudevan.pageobjects.LandingPage;
 public class BrowserTestComponents {
 	// WebDriver driver;
 	protected WebDriver driver;
+	protected LandingPage landingPage;
 	
 	public WebDriver initiaizeBrowser() throws IOException {
 		Properties property = new Properties();
@@ -35,13 +39,19 @@ public class BrowserTestComponents {
      
         return driver;
 	}
+
 	
 	public LandingPage launchApplication() throws IOException {
 		driver = initiaizeBrowser();
-		LandingPage landingPage = new LandingPage(driver);
+		landingPage = new LandingPage(driver);
 		landingPage.launchingURL();
 		return landingPage;
 	}
+    @AfterTest
+    public void closeApp() {
+  	   driver.close(); 
+   }
+
 	
 	
 
