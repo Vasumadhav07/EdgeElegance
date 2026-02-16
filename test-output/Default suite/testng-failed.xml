@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="vasudevan.Tests.ErrorValidations">
+      <class name="vasudevan.Tests.EdgeElegance">
         <methods>
-          <include name="loginValidations"/>
-          <include name="ProductErrorvlidations"/>
+          <include name="verifyOrder"/>
           <include name="closeApp"/>
+          <include name="submitOrder"/>
         </methods>
-      </class> <!-- vasudevan.Tests.ErrorValidations -->
+      </class> <!-- vasudevan.Tests.EdgeElegance -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

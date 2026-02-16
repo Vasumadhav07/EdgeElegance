@@ -3,8 +3,6 @@ package vasudevan.pageobjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
 import vasudevan.AbstractComponents.ReusableCodes;
 
 public class CartPage extends ReusableCodes {
@@ -16,7 +14,7 @@ public class CartPage extends ReusableCodes {
 //		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath="//a[.='View Cart']")
+	@FindBy(xpath="//a[@class='tpcart-btn mb-10']")
 	WebElement cartBtn;
 	
 	@FindBy(xpath="//a[text()='Proceed to Checkout']")

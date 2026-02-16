@@ -12,7 +12,11 @@ import vasudevan.pageobjects.OrderPage;
 import vasudevan.pageobjects.ProductPage;
 
 public class EdgeElegance  extends  BrowserTestComponents {
-	 String productName = "Embellished Thread Work Lehenga & Blouse With Dupatta";
+	 String productName = "Pink Sequinned Ready to Wear Lehenga Blouse With Dupatta Potli Bag";    
+	 
+	 
+	 
+	 
      @Test
         public void submitOrder() throws IOException, InterruptedException  {
     	landingPage= launchApplication();
@@ -28,6 +32,19 @@ public class EdgeElegance  extends  BrowserTestComponents {
         Assert.assertEquals(actualText, expectedText);
      
       }   
+     
+     @Test(dependsOnMethods= {"submitOrder"})
+     
+     public void verifyOrder() throws InterruptedException {
+    	 
+         OrderPage orderPage= new OrderPage(driver);
+         orderPage.invoiceDownload();
+         
+         
+         
+         
+         
+     }
  
     
     
