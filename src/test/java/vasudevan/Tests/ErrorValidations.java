@@ -23,7 +23,7 @@ public class ErrorValidations  extends  BrowserTestComponents {
 
      
       }  
-     @Test
+     @Test(groups= {"invoiceDownload"})
      public void ProductErrorvlidations() throws IOException, InterruptedException  {
     	 landingPage= launchApplication();
      	landingPage.loginActions();

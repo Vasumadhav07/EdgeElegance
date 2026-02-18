@@ -1,13 +1,22 @@
 package vasudevan.TestComponents;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import vasudevan.pageobjects.LandingPage;
 
@@ -45,9 +54,24 @@ public class BrowserTestComponents {
 		return landingPage;
 	}
 	
+	public List<HashMap<String, String>> getData(String FilePath) throws IOException {
+		
+		 String content =FileUtils.readFileToString(new File(System.getProperty("user.dir")+"\\src\\test\\java\\vasudevan\\Data\\userData.json"),StandardCharsets.UTF_8);
+		 ObjectMapper mapper = new ObjectMapper();
+		 List<HashMap<String, String>> data =
+				    mapper.readValue(content,
+				        new TypeReference<List<HashMap<String, String>>>() {});
+		 
+		              return data;
+
+		 
+		 
+	}
+	
+	
     @AfterTest
     public void closeApp() {
-  	   driver.close(); 
+  	   driver.close();
    }
 
 	

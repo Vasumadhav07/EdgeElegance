@@ -5,7 +5,6 @@
     <classes>
       <class name="vasudevan.Tests.EdgeElegance">
         <methods>
-          <include name="verifyOrder"/>
           <include name="closeApp"/>
           <include name="submitOrder"/>
         </methods>

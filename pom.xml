@@ -39,6 +39,14 @@
             <artifactId>webdrivermanager</artifactId>
             <version>5.8.0</version>
         </dependency>
+        
+        <!-- Source: https://mvnrepository.com/artifact/tools.jackson.core/jackson-databind -->
+<dependency>
+    <groupId>tools.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>3.1.0-rc1</version>
+    <scope>compile</scope>
+</dependency>
 
     </dependencies>
 
